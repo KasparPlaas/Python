@@ -119,28 +119,68 @@ poe_listi()
 # Eurokalkulaator()
 '''
 
-# # 8.Tärinug
-# 	kuvatakse korrektne arusaadav kĆ¼simus ja hiljem vastus - 1p
-# 	kasutaja vĆµistleb kahe tĆ¤ringuga arvuti vastu - 1p
-# 	kasutaja teeb pakkumise ning suurima tĆ¤ringupunktisumma vĆµitja saab laual oleva raha endale - 2p
+# 8.Täringu mäng
+'''
+def taringumang():
+    print("Tere tulemast täringumängu!")
+    panus = int(input("Palun sisestage oma panus: "))
+    print("Teie panus on ", panus, " eurot")
+    print("arvuti viskab täringuid...")
+    ab = random.randint(1,6)
+    ac = random.randint(1,6)
+    taring = ab+ac
+    vastus = int(input("Arvake ära mitu tärni arvuti viskas: "))
+    raha = panus*2
+    if taring==vastus:
+        print("Teie võitsite! Te võitsite ", raha, " eurot")
+    else:
+        print("Arvuti võitis, õige vastus oli", taring, "! Te kaotasite ", panus, " eurot")
+
+taringumang()
+'''
+
+# 9. emaili kontroll
+
+'''
+def email():
+    email = input("Sisesta email: ")
+    if "@" in email:
+        print("Tere " + email.split("@")[0].split(".")[0] + ", sinu email on serveris " + email.split("@")[1].split(".")[0] + " ja domeeniks on sul " + email.split("@")[1].split(".")[1])
+    else:
+        print("Vale email!")
+email()
+'''
+
+# 10. kaugushüpe
+
+'''
+# def kaugushupe():
+#     tulemused = []
+#     for i in range(3):
+#         tulemus = float(input("Sisesta kaugushüppe tulemus: "))
+#         tulemused.append(tulemus)
+#     print("Parim tulemus on ", max(tulemused), "m")
+#     print("Keskmine tulemus on ", sum(tulemused)/len(tulemused), "m")
+# kaugushupe()
+'''
+
+# 11. Salakeel
+# 	sinu programm küsib kasutajalt, kas ta soovib salakeelt luua või tõlkida - 1p
+# 	kasutaja sisestab tavalise sĆµna, mis muudetakse salakeeleks - 1p
+# 	kasutaja sisestab salakeeles sõna, mis teisendatakse jälle normaalseks - 1p
 # 	kood kommenteeritud - 1p
 
-def taringumang():
-    print("Tere tulemast tärinumbrimängu!")
-    print("Kas soovite mängida tärinumbrimängu?")
-    valik = input("Sisestage oma valik (jah/ei): ")
-    if valik == "jah":
-        print("Mängime!")
-        ab = random.randint(1,6)
-        ac = random.randint(1,6)
-        taring = ab+ac
-        vastus = int(input("Sisestage oma pakkumine: "))
+def salakeel():
+    print("Kas soovite salakeelt luua või tõlkida?")
+    valik = input("Sisestage oma valik: ")
+    if valik == "luua":
+        sona = input("Sisestage sõna, mida soovite salakeelde muuta: ")
+        print(sona)
+    elif valik == "tolkida":
+        sona = input("Sisestage sõna, mida soovite tõlkida: ")
+        print(sona)
+    else:
+        print("Vale valik!")
+        salakeel()
+salakeel()
         
-        print("Arvuti viskas: ", täring1)
-        raha = täring1+täring2
-        if taring > vastus:
-            print("Arvuti võitis! Te kaotasite ", raha, " eurot")
-        elif täring1 < täring2:
-            print("Teie võitsite! Te võitsite ", raha, " eurot")
-        else:
-            print("Viik!")
