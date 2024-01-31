@@ -8,15 +8,15 @@ screen.fill([255, 255, 255])
  
 # Pildid
 
-shop = pygame.image.load("shop.jpg")
+shop = pygame.image.load("img/shop.jpg")
 shop = pygame.transform.scale(shop, [640,480])
 screen.blit(shop,[0,0])
 
-seller = pygame.image.load("seller.png")
+seller = pygame.image.load("img/seller.png")
 seller = pygame.transform.scale(seller, [224,282])
 screen.blit(seller,[120,180])
 
-chat = pygame.image.load("chat.png")
+chat = pygame.image.load("img/chat.png")
 chat = pygame.transform.scale(chat, [240,180])
 screen.blit(chat,[240,100])
 

@@ -1,6 +1,14 @@
 import pygame, sys, random
 pygame.init()
 
+# Värvid
+red = [255, 0, 0]
+green = [0, 255, 0]
+blue = [0, 0, 255]
+pink = [255, 153, 255]
+lGreen = [153, 255, 153]
+lBlue = [153, 204, 255]
+
 # Ekraani seaded
 screenX = 640
 screenY = 480
@@ -9,38 +17,51 @@ pygame.display.set_caption("Harjutus 4")
 screen.fill([255, 255, 255])
 clock = pygame.time.Clock()
 
-# kiirus ja asukoht
-posX, posY = 0, 0
-speedX, speedY = 3, 3
+# Pildid
+taust = pygame.image.load("img/rada.png")
+taust = pygame.transform.scale(taust, [640,480])
 
-#koordinaatide loomine ja lisamine massiivi
+auto1 = pygame.image.load("img/masin1.png")
+auto1 = pygame.transform.scale(auto1, [45,95])
+
+auto2 = pygame.image.load("img/masin2.png")
+auto2 = pygame.transform.scale(auto2, [45,95])
+
+# Kiiruts ja asukoht
+posX, posY = 0, 0
+speedX = 3
+
+# Koordinaadid
 coords = []
-for i in range (10):
-    posX = random.randint(1,screenX)
-    posY = random.randint(1,screenY)
+for i in range(10):
+    posX = random.randint(200, 400)
+    posY = random.randint(1, screenY)
     coords.append([posX, posY])
 
+gameover = False
+score = 0
+font = pygame.font.Font(None, 28)
+while not gameover:
+    clock.tick(120)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            sys.exit()
+    
+    screen.blit(taust,[0,0])
+    screen.blit(auto1,[310,380])
+    
+    for i in range(3):
+        screen.blit(auto2, [coords[i][0], coords[i][1]])
+        coords[i][1] += 1
+        # kui auto jõuab alla, siis läheb uuesti üles
+        if coords[i][1] > screenY:
+            coords[i][1] = random.randint(-10, 100)
+            coords[i][0] = random.randint(170, 460)
+            score += 1
+    
+    text = font.render("Score: "+str(score), True, [0, 0, 0])
+    screen.blit(text, [10, 10]) 
+    
+    pygame.display.flip()
 
-# Pildid
-
-rada = pygame.image.load("rada.png")
-rada = pygame.transform.scale(rada, [640,480])
-screen.blit(rada,[0,0])
-
-
-
-masin = pygame.image.load("masin.png")
-masin = pygame.transform.scale(masin, [120,120])
-screen.blit(masin,[310,370])
-
-auto = pygame.image.load("auto.png")
-masin = pygame.transform.scale(auto, [60,60])
-
-
-
-def extract_frames(auto, screenx, screeny):
-    frames = extract_frames(auto, screenx, screeny)
-    current_frame = frames[0]
-
-    screen.blit(current_frame, (screenx, screeny)) 
-
+pygame.quit()
