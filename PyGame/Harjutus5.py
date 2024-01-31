@@ -40,7 +40,7 @@ pall = pygame.transform.scale(pall, [20,20])
 
 #kiirus ja asukoht
 posX, posY = 0, 0
-speedX = 3
+speedX, speedY = 3, 4
 
 gameover = False
 while not gameover:
@@ -53,10 +53,24 @@ while not gameover:
            sys.exit()
  
     #pildi lisamine ekraanile
-    screen.blit(alus, (posX,posY))
+        
+    screen.blit(pall, (posX,posY))
  
     posX += speedX
+    posY += speedY
+    if posX > screenX-pall.get_rect().width or posX < 0:
+        speedX = -speedX
  
+    if posY > screenY-pall.get_rect().height or posY < 0:
+        speedY = -speedY
+    
+    posXX, posYY = 0, 0
+    screen.blit(alus, (posXX,screenY/1.5))
+ 
+    posX += speedX
+    if posX > screenX-pall.get_rect().width or posXX < 0:
+        speedX = -speedX
+    
     #graafika kuvamine ekraanil
     pygame.display.flip()
     screen.fill([153, 204, 255])
