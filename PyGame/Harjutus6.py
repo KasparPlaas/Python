@@ -51,9 +51,9 @@ while not gameover:
         
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                speedX = -3
+                speedX = -5
             elif event.key == pygame.K_RIGHT:
-                speedX = 3
+                speedX = 5
             
     
     # Piirid
