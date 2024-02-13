@@ -224,7 +224,7 @@ def miilid():
 
 
 # Harjutus 10
-#10. Kontaktid - loo programm, mis küsib kasutajalt nime ja telefoninr ja lisab need tekstifaili.
+
 def kontaktid():
     nimi = str(input("Sisestage oma nimi!: "))
     nr = int(input("Sisestage oma telefoni nr!: "))
@@ -237,19 +237,12 @@ def pea():
     aken = Tk()
     aken.title('Iseseisev_Tkinter')
 
-
-    # Ava aken, kus saab valida millise funktsiooni käivitab!
     aken.geometry("320x420")
     aken.resizable(0,0)
     aken.option_add('*font', ('tahoma', 12))
 
-
     tekst = Label(aken, text="Valige, millist programmi soovite kasutada!")
     tekst.grid(row=0, column=1, padx=2, pady=2)
-
-
-
-# Esimene akna valikud
 
     nupp1 = Button(aken, text="Matemaatika", width=15, command=matemaatika_programm)
     nupp1.grid(row=1, column=1, padx=2, pady=2)
