@@ -106,37 +106,47 @@ def romantika():
 
 
 # Harjutus 4
-
 def it_moisted():
+    def IT():
+        sisestus = Entry(aken, width=10)
+        sisestus.pack(pady=5)
+        sisestus = entry_sisestus.get().lower()
+        
+        if sisestus == "infotehnoloogia":
+            vastus.config(text="Õige vastus! Jätkamiseks vajuta JÄTKA!")
+        else:
+            vastus.config(text="Vale valik!")
+    def SON():
+        sisestus = entry_sisestus.get()
+        if sisestus == "1":
+            vastus.config(text="1. CPU - Central Processing Unit")
+        elif sisestus == "2":
+            vastus.config(text="2. RAM - Random Access Memory")
+        else:
+            vastus.config(text="Vale valik!")
+
     aken = Tk()
-    aken.title('Matemaatika')
+    aken.title('Mõisted')
     aken.geometry("400x300")
     aken.resizable(0, 0)
     aken.option_add('*font', ('tahoma', 12))
-    
+
     pealkiri = Label(aken, text="IT Mõisted")
     pealkiri.pack(pady=10)
+
+    seletus = Label(aken, text="Vali üks mõiste! ")
+    seletus.pack(pady=5)
+
+    vastus = Label(aken, text="")
+    vastus.pack(pady=10)
+
+    nupp_IT = Button(aken, text="IT", command=IT)
+    nupp_IT.pack(pady=10)
+
+    nupp_SON = Button(aken, text="SON", command=SON)
+    nupp_SON.pack(pady=10)
     
     
-    moiste1 = "it"
-    moiste2 = "son"
-    
-    print("1.",moiste1,"\n2.",moiste2)
-    
-    valik = int(input("Vali üks mõiste! Sisesta 1 või 2: "))
-    if valik == 1:
-        vastus = str(input("Sisesta 'IT' tähendus!: "))
-        if vastus == "infotehnoloogia":
-            print("Vastasite õigesti!")
-        else:
-            print("Vastasite valesti!")
-            
-    elif valik == 2:
-        vastus = str(input("Sisestage 'SON' tähendus!: "))
-        if vastus == "salvestamine on nõrkadele":
-            print("Õige vastus!")
-        else:
-            print("Vale vastus!")
             
 #it_moisted()
 
