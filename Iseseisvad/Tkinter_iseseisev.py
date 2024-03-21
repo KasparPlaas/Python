@@ -114,8 +114,13 @@ def it_moisted():
         
         if sisestus == "infotehnoloogia":
             vastus.config(text="Õige vastus! Jätkamiseks vajuta JÄTKA!")
+            
+            nupp_SON = Button(aken, text="Jätka", command=SON)
         else:
-            vastus.config(text="Vale valik!")
+            vastus.config(text="Vale valik! Proovi uuesti!")
+            nupp_SON = Button(aken, text="Jätka", command=SON)
+            nupp_SON.pack(pady=10)
+            
     def SON():
         sisestus = entry_sisestus.get()
         if sisestus == "1":
